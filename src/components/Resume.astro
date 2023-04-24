@@ -1,10 +1,15 @@
 ---
 import type Zod from "zod";
 import type contentSchema from "../contentSchema.js";
+import Footer from "./Footer.astro";
 
 export interface Props {
 	content: Zod.infer<typeof contentSchema>;
 }
+
+const {content} = Astro.props;
 ---
 
-<div class="resume"></div>
+<div class="resume">
+	<Footer gdprClause={content.gdprClause} />
+</div>

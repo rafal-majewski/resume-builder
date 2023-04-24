@@ -1,0 +1,11 @@
+---
+export interface Props {
+	gdprClause: string;
+}
+
+const {gdprClause} = Astro.props;
+---
+
+<footer class="footer">
+	{gdprClause}
+</footer>
