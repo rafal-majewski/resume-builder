@@ -1,8 +1,15 @@
 ---
 import A4Page from "../layouts/A4Page.astro";
 import Resume from "../components/Resume.astro";
+import contentSchema from "../contentSchema.js"; // zod
+import * as Fs from "fs/promises";
+import * as Path from "path"; // read ./data/content.json
+
+const content = contentSchema.parse(
+	JSON.parse(await Fs.readFile(Path.join(process.cwd(), "data", "content.json"), "utf-8"))
+);
 ---
 
 <A4Page>
-	<Resume />
+	<Resume content={content} />
 </A4Page>
