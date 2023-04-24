@@ -105,26 +105,3 @@ jobs:
       - name: Run Build check
         run: |
           npm run build:check
-  build:
-    name: Build
-    needs: [eslint_check, vitest_check, build_check]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.SETUP_NODE_NODE_VERSION }}
-          cache: "npm"
-      - name: Install dependencies
-        run: |
-          npm ci
-      - name: Build
-        run: |
-          npm run build
-      - name: Upload dist
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
