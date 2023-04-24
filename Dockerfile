@@ -6,7 +6,8 @@ WORKDIR /home/appuser
 
 COPY --chown=appuser:appuser package.json ./
 COPY --chown=appuser:appuser package-lock.json ./
-COPY --chown=appuser:appuser ./dist/ ./dist
+COPY --chown=appuser:appuser ./astro.config.mjs ./
+COPY --chown=appuser:appuser ./src ./src
 
 RUN chown -R appuser:appuser /home/appuser && npm ci --production
 
