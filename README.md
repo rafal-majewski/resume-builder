@@ -1,4 +1,4 @@
-# astro-app-template
+# resume-builder
 
 This is a template for a Node.js TypeScript project.
 
