@@ -1,1 +1,10 @@
+---
+import type Zod from "zod";
+import type contentSchema from "../contentSchema.js";
+
+export interface Props {
+	content: Zod.infer<typeof contentSchema>;
+}
+---
+
 <div class="resume"></div>
