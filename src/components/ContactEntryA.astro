@@ -1,0 +1,29 @@
+---
+import type {contactEntrySchema} from "../contentSchema.js";
+import type Zod from "zod";
+export interface Props {
+	contactEntry: Zod.infer<typeof contactEntrySchema>;
+}
+
+const {datum, icon, href} = Astro.props.contactEntry;
+---
+
+<a class="contact-entry-a" href={href}>
+	<img src={icon.filepath} class="contact-entry-a__icon" alt={icon.alt} />
+	<span class="contact-entry-a__datum"></span>{datum}
+</a>
+
+<style lang="scss">
+	.contact-entry-a {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+
+		text-decoration: none;
+		color: black;
+	}
+	.contact-entry-a__icon {
+		width: 1rem;
+		height: 1rem;
+	}
+</style>
