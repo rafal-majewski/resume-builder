@@ -21,4 +21,23 @@ const {content} = Astro.props;
 
 		padding: 1rem;
 	}
+
+	.flex {
+		display: flex;
+		&.flex--row {
+			flex-direction: row;
+		}
+
+		&.flex--column {
+			flex-direction: column;
+		}
+
+		&.flex--size-large {
+			gap: 1rem;
+		}
+
+		&.flex--size-medium {
+			gap: 0.5rem;
+		}
+	}
 </style>
