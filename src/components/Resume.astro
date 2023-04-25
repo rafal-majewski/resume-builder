@@ -13,7 +13,7 @@ const {content} = Astro.props;
 
 <div class="resume">
 	<Main />
-	<Footer gdprClause={content.gdprClause} />
+	<Footer>{content.gdprClause}</Footer>
 </div>
 
 <style lang="scss">
