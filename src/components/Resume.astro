@@ -11,6 +11,11 @@ const {content} = Astro.props;
 ---
 
 <div class="resume">
+	<div class="flex flex--row flex--size-large">
+		<div class="resume__introduction">
+			<h1>{content.person.firstName} {content.person.lastName}</h1>
+		</div>
+	</div>
 	<Footer>{content.gdprClause}</Footer>
 </div>
 
