@@ -5,6 +5,7 @@ const contentSchema = Zod.object({
 	person: Zod.object({
 		firstName: Zod.string().min(1),
 		lastName: Zod.string().min(1),
+		description: Zod.string().min(1),
 	}),
 });
 export default contentSchema;
