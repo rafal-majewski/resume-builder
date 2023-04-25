@@ -19,6 +19,7 @@ const contentSchema = Zod.object({
 			emailAddress: contactEntrySchema,
 			location: contactEntrySchema,
 			linkedin: contactEntrySchema,
+			github: contactEntrySchema,
 		}),
 	}),
 });

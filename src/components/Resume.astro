@@ -25,6 +25,7 @@ const {content} = Astro.props;
 				<li><ContactEntry contactEntry={content.person.contact.emailAddress} /></li>
 				<li><ContactEntry contactEntry={content.person.contact.location} /></li>
 				<li><ContactEntry contactEntry={content.person.contact.linkedin} /></li>
+				<li><ContactEntry contactEntry={content.person.contact.github} /></li>
 			</ul>
 			<Footer>{content.gdprClause}</Footer>
 		</div>
