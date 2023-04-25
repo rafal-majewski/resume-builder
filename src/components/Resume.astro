@@ -2,7 +2,6 @@
 import type Zod from "zod";
 import type contentSchema from "../contentSchema.js";
 import Footer from "./Footer.astro";
-import Main from "./Main.astro";
 
 export interface Props {
 	content: Zod.infer<typeof contentSchema>;
@@ -12,7 +11,6 @@ const {content} = Astro.props;
 ---
 
 <div class="resume">
-	<Main />
 	<Footer>{content.gdprClause}</Footer>
 </div>
 
@@ -22,5 +20,24 @@ const {content} = Astro.props;
 		grid-template-rows: 1fr auto;
 
 		padding: 1rem;
+	}
+
+	.flex {
+		display: flex;
+		&.flex--row {
+			flex-direction: row;
+		}
+
+		&.flex--column {
+			flex-direction: column;
+		}
+
+		&.flex--size-large {
+			gap: 1rem;
+		}
+
+		&.flex--size-medium {
+			gap: 0.5rem;
+		}
 	}
 </style>

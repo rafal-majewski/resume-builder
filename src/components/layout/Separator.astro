@@ -1,0 +1,47 @@
+---
+export interface Props {
+	direction: "row" | "column";
+	size: "small" | "medium" | "large";
+}
+const {direction, size} = Astro.props;
+---
+
+<div
+	class="separator"
+	class:list={{
+		"separator--row": direction === "row",
+		"separator--column": direction === "column",
+		"separator--small": size === "small",
+		"separator--medium": size === "medium",
+		"separator--large": size === "large",
+	}}
+>
+</div>
+
+<style lang="scss">
+	.separator {
+		background-color: gray;
+
+		&--small {
+			$size: 1px;
+			height: $size;
+			width: $size;
+		}
+		&--medium {
+			$size: 2px;
+			height: $size;
+			width: $size;
+		}
+		&--large {
+			$size: 4px;
+			height: $size;
+			width: $size;
+		}
+		&--row {
+			height: 100%;
+		}
+		&--column {
+			width: 100%;
+		}
+	}
+</style>
