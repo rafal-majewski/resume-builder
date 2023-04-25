@@ -166,7 +166,7 @@ const eslintConfig = [
 			"astro/valid-compile": "error",
 			"astro/no-set-html-directive": "error",
 			"astro/no-set-text-directive": "error",
-			"astro/no-unused-css-selector": "error",
+			"astro/no-unused-css-selector": "off",
 			"astro/prefer-class-list-directive": "error",
 			"astro/prefer-object-class-list": "error",
 			"astro/prefer-split-class-list": "error",
