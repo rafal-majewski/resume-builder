@@ -16,6 +16,7 @@ const contentSchema = Zod.object({
 		description: Zod.string().min(1),
 		contact: Zod.object({
 			phoneNumber: contactEntrySchema,
+			emailAddress: contactEntrySchema,
 		}),
 	}),
 });
