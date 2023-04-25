@@ -2,6 +2,7 @@ import Zod from "zod";
 
 export const contactEntrySchema = Zod.object({
 	datum: Zod.string().min(1),
+	href: Zod.string().min(1),
 	icon: Zod.object({
 		filepath: Zod.string().min(1),
 		alt: Zod.string().min(1),

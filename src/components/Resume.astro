@@ -3,7 +3,7 @@ import type Zod from "zod";
 import type contentSchema from "../contentSchema.js";
 import Footer from "./Footer.astro";
 import Separator from "./layout/Separator.astro";
-import ContactEntry from "./ContactEntry.astro";
+import ContactEntryA from "./ContactEntryA.astro";
 
 export interface Props {
 	content: Zod.infer<typeof contentSchema>;
@@ -21,11 +21,11 @@ const {content} = Astro.props;
 		<Separator direction="row" size="large" />
 		<div class="resume__contact">
 			<ul class="resume__contact__list">
-				<li><ContactEntry contactEntry={content.person.contact.phoneNumber} /></li>
-				<li><ContactEntry contactEntry={content.person.contact.emailAddress} /></li>
-				<li><ContactEntry contactEntry={content.person.contact.location} /></li>
-				<li><ContactEntry contactEntry={content.person.contact.linkedin} /></li>
-				<li><ContactEntry contactEntry={content.person.contact.github} /></li>
+				<li><ContactEntryA contactEntry={content.person.contact.phoneNumber} /></li>
+				<li><ContactEntryA contactEntry={content.person.contact.emailAddress} /></li>
+				<li><ContactEntryA contactEntry={content.person.contact.location} /></li>
+				<li><ContactEntryA contactEntry={content.person.contact.linkedin} /></li>
+				<li><ContactEntryA contactEntry={content.person.contact.github} /></li>
 			</ul>
 			<Footer>{content.gdprClause}</Footer>
 		</div>

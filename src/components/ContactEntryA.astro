@@ -5,19 +5,22 @@ export interface Props {
 	contactEntry: Zod.infer<typeof contactEntrySchema>;
 }
 
-const {datum, icon} = Astro.props.contactEntry;
+const {datum, icon, href} = Astro.props.contactEntry;
 ---
 
-<div class="contact-entry">
-	<img src={icon.filepath} class="contact-entry__icon" alt={icon.alt} />
-	<span class="contact-entry__datum"></span>{datum}
-</div>
+<a class="contact-entry-a" href={href}>
+	<img src={icon.filepath} class="contact-entry-a__icon" alt={icon.alt} />
+	<span class="contact-entry-a__datum"></span>{datum}
+</a>
 
 <style lang="scss">
-	.contact-entry {
+	.contact-entry-a {
 		display: flex;
 		align-items: center;
 		gap: 0.25rem;
+
+		text-decoration: none;
+		color: black;
 	}
 	.contact-entry-a__icon {
 		width: 1rem;
