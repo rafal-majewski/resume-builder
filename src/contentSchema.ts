@@ -18,6 +18,7 @@ const contentSchema = Zod.object({
 			phoneNumber: contactEntrySchema,
 			emailAddress: contactEntrySchema,
 			location: contactEntrySchema,
+			linkedin: contactEntrySchema,
 		}),
 	}),
 });
