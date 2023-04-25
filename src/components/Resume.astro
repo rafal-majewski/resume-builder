@@ -4,6 +4,7 @@ import type contentSchema from "../contentSchema.js";
 import Footer from "./Footer.astro";
 import Separator from "./layout/Separator.astro";
 import ContactEntryA from "./ContactEntryA.astro";
+import EducationEntryA from "./EducationEntryA.astro";
 
 export interface Props {
 	content: Zod.infer<typeof contentSchema>;
@@ -35,6 +36,15 @@ const {content} = Astro.props;
 		<div class="resume__additional-info">
 			<div class="resume__education">
 				<h2>Education</h2>
+				<ul class="resume__education__list">
+					{
+						content.person.education.map((educationEntry) => (
+							<li>
+								<EducationEntryA educationEntry={educationEntry} />
+							</li>
+						))
+					}
+				</ul>
 			</div>
 		</div>
 		<Separator direction="row" size="large" />
@@ -50,6 +60,13 @@ const {content} = Astro.props;
 	}
 
 	.resume__contact__list {
+		list-style: none;
+		margin-block-start: 0;
+		margin-block-end: 0;
+		padding-inline-start: 0;
+	}
+
+	.resume__education__list {
 		list-style: none;
 		margin-block-start: 0;
 		margin-block-end: 0;
