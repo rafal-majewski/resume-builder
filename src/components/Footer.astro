@@ -1,13 +1,5 @@
----
-export interface Props {
-	gdprClause: string;
-}
-
-const {gdprClause} = Astro.props;
----
-
 <footer class="footer">
-	{gdprClause}
+	<slot />
 </footer>
 
 <style lang="scss">
