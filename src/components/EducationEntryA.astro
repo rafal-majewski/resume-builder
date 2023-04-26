@@ -1,0 +1,56 @@
+---
+import type {educationEntrySchema} from "../contentSchema.js";
+import type Zod from "zod";
+export interface Props {
+	educationEntry: Zod.infer<typeof educationEntrySchema>;
+}
+
+const {name, period, description, href, icon, additionalInformations} = Astro.props.educationEntry;
+---
+
+<a class="education-entry-a" href={href}>
+	<img class="education-entry-a__icon" src={icon.filepath} alt="" />
+	<span class="education-entry-a__text">
+		<span class="education-entry-a__text__name">{name}</span>
+		<span class="education-entry-a__text__period">{period.start} – {period.end}</span>
+		<span class="education-entry-a__text__description">{description}</span>
+		<ul class="education-entry-a__text__additional-informations">
+			{
+				additionalInformations.map((additionalInformation) => (
+					<li class="education-entry-a__text__additional-informations__item">
+						{additionalInformation}
+					</li>
+				))
+			}
+		</ul>
+	</span>
+</a>
+
+<style lang="scss">
+	.education-entry-a {
+		display: flex;
+		gap: 0.25rem;
+
+		text-decoration: none;
+		color: black;
+	}
+	.education-entry-a__text {
+		display: flex;
+		flex-direction: column;
+	}
+	.education-entry-a__text__name {
+		font-weight: bold;
+	}
+	.education-entry-a__icon {
+		width: 3rem;
+		height: 3rem;
+	}
+	.education-entry-a__text__additional-informations {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.education-entry-a__text__additional-informations__item {
+		font-style: italic;
+	}
+</style>
