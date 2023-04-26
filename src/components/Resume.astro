@@ -36,11 +36,13 @@ const {content} = Astro.props;
 		<div class="resume__additional-info">
 			<div class="resume__education">
 				<h2>Education</h2>
+				<Separator direction="column" size="medium" />
 				<ul class="resume__education__list">
 					{
 						content.person.education.map((educationEntry) => (
 							<li>
 								<EducationEntryA educationEntry={educationEntry} />
+								<Separator direction="column" size="medium" />
 							</li>
 						))
 					}
