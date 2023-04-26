@@ -5,7 +5,7 @@ export interface Props {
 	educationEntry: Zod.infer<typeof educationEntrySchema>;
 }
 
-const {name, period, description, href, icon} = Astro.props.educationEntry;
+const {name, period, description, href, icon, additionalInformations} = Astro.props.educationEntry;
 ---
 
 <a class="education-entry-a" href={href}>
@@ -14,6 +14,15 @@ const {name, period, description, href, icon} = Astro.props.educationEntry;
 		<span class="education-entry-a__text__name">{name}</span>
 		<span class="education-entry-a__text__period">{period.start} – {period.end}</span>
 		<span class="education-entry-a__text__description">{description}</span>
+		<ul class="education-entry-a__text__additional-informations">
+			{
+				additionalInformations.map((additionalInformation) => (
+					<li class="education-entry-a__text__additional-informations__item">
+						{additionalInformation}
+					</li>
+				))
+			}
+		</ul>
 	</span>
 </a>
 
@@ -35,5 +44,13 @@ const {name, period, description, href, icon} = Astro.props.educationEntry;
 	.education-entry-a__icon {
 		width: 3rem;
 		height: 3rem;
+	}
+	.education-entry-a__text__additional-informations {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.education-entry-a__text__additional-informations__item {
+		font-style: italic;
 	}
 </style>
