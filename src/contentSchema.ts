@@ -20,6 +20,7 @@ export const educationEntrySchema = Zod.object({
 	icon: Zod.object({
 		filepath: Zod.string().min(1),
 	}),
+	additionalInformations: Zod.array(Zod.string().min(1)),
 });
 
 const contentSchema = Zod.object({
