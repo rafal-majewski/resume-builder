@@ -15,12 +15,12 @@ const {content} = Astro.props;
 
 <div class="resume">
 	<div class="flex flex--row flex--size-large">
-		<div class="resume__introduction">
+		<section class="resume__introduction">
 			<h1>{content.person.firstName} {content.person.lastName}</h1>
 			<p>{content.person.description}</p>
-		</div>
+		</section>
 		<Separator direction="row" size="large" />
-		<div class="resume__contact">
+		<section class="resume__contact">
 			<ul class="resume__contact__list">
 				<li><ContactEntryA contactEntry={content.person.contact.phoneNumber} /></li>
 				<li><ContactEntryA contactEntry={content.person.contact.emailAddress} /></li>
@@ -29,12 +29,12 @@ const {content} = Astro.props;
 				<li><ContactEntryA contactEntry={content.person.contact.github} /></li>
 			</ul>
 			<Footer>{content.gdprClause}</Footer>
-		</div>
+		</section>
 	</div>
 	<Separator direction="column" size="large" />
 	<div class="flex flex--row flex--size-large">
 		<div class="resume__additional-info">
-			<div class="resume__education">
+			<section class="resume__education">
 				<h2>Education</h2>
 				<Separator direction="column" size="medium" />
 				<ul class="resume__education__list">
@@ -47,7 +47,7 @@ const {content} = Astro.props;
 						))
 					}
 				</ul>
-			</div>
+			</section>
 		</div>
 		<Separator direction="row" size="large" />
 	</div>
