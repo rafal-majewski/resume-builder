@@ -16,32 +16,42 @@ const {orientation, size} = Astro.props;
 		"separator--large": size === "large",
 	}}
 >
+	<div class="separator__bar"></div>
 </div>
 
 <style lang="scss">
 	.separator {
-		background-color: gray;
-
+		display: grid;
 		&--small {
 			$size: 1px;
 			height: $size;
 			width: $size;
+			padding: 0.25rem;
 		}
 		&--medium {
 			$size: 2px;
 			height: $size;
 			width: $size;
+			padding: 0.5rem;
 		}
 		&--large {
 			$size: 4px;
 			height: $size;
 			width: $size;
+			padding: 1rem;
 		}
 		&--orientation-vertical {
-			height: 100%;
+			height: auto;
+			padding-top: 0;
+			padding-bottom: 0;
 		}
 		&--orientation-horizontal {
-			width: 100%;
+			width: auto;
+			padding-right: 0;
+			padding-left: 0;
 		}
+	}
+	.separator__bar {
+		background-color: gray;
 	}
 </style>
