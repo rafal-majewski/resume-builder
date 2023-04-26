@@ -19,7 +19,7 @@ const {content} = Astro.props;
 			<h1>{content.person.firstName} {content.person.lastName}</h1>
 			<p>{content.person.description}</p>
 		</section>
-		<Separator direction="row" size="large" />
+		<Separator orientation="vertical" size="large" />
 		<section class="resume__contact">
 			<ul class="resume__contact__list">
 				<li><ContactEntryA contactEntry={content.person.contact.phoneNumber} /></li>
@@ -31,25 +31,25 @@ const {content} = Astro.props;
 			<Footer>{content.gdprClause}</Footer>
 		</section>
 	</div>
-	<Separator direction="column" size="large" />
+	<Separator orientation="horizontal" size="large" />
 	<div class="flex flex--row flex--size-large">
 		<div class="resume__additional-info">
 			<section class="resume__education">
 				<h2>Education</h2>
-				<Separator direction="column" size="medium" />
+				<Separator orientation="horizontal" size="medium" />
 				<ul class="resume__education__list">
 					{
 						content.person.education.map((educationEntry) => (
 							<li>
 								<EducationEntryA educationEntry={educationEntry} />
-								<Separator direction="column" size="medium" />
+								<Separator orientation="horizontal" size="medium" />
 							</li>
 						))
 					}
 				</ul>
 			</section>
 		</div>
-		<Separator direction="row" size="large" />
+		<Separator orientation="vertical" size="large" />
 	</div>
 </div>
 
