@@ -23,30 +23,40 @@ const {orientation, size} = Astro.props;
 	.separator {
 		display: grid;
 		&--small {
-			$size: 1px;
-			height: $size;
-			width: $size;
+			.separator__bar {
+				$size: 1px;
+				height: $size;
+				width: $size;
+			}
 			padding: 0.25rem;
 		}
 		&--medium {
-			$size: 2px;
-			height: $size;
-			width: $size;
+			.separator__bar {
+				$size: 2px;
+				height: $size;
+				width: $size;
+			}
 			padding: 0.5rem;
 		}
 		&--large {
-			$size: 4px;
-			height: $size;
-			width: $size;
+			.separator__bar {
+				$size: 4px;
+				height: $size;
+				width: $size;
+			}
 			padding: 1rem;
 		}
 		&--orientation-vertical {
-			height: auto;
+			.separator__bar {
+				height: auto;
+			}
 			padding-top: 0;
 			padding-bottom: 0;
 		}
 		&--orientation-horizontal {
-			width: auto;
+			.separator__bar {
+				width: auto;
+			}
 			padding-right: 0;
 			padding-left: 0;
 		}
