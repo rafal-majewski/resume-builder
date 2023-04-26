@@ -1,16 +1,16 @@
 ---
 export interface Props {
-	direction: "row" | "column";
+	orientation: "horizontal" | "vertical";
 	size: "small" | "medium" | "large";
 }
-const {direction, size} = Astro.props;
+const {orientation, size} = Astro.props;
 ---
 
 <div
 	class="separator"
 	class:list={{
-		"separator--row": direction === "row",
-		"separator--column": direction === "column",
+		"separator--orientation-horizontal": orientation === "horizontal",
+		"separator--orientation-vertical": orientation === "vertical",
 		"separator--small": size === "small",
 		"separator--medium": size === "medium",
 		"separator--large": size === "large",
@@ -37,10 +37,10 @@ const {direction, size} = Astro.props;
 			height: $size;
 			width: $size;
 		}
-		&--row {
+		&--orientation-vertical {
 			height: 100%;
 		}
-		&--column {
+		&--orientation-horizontal {
 			width: 100%;
 		}
 	}
