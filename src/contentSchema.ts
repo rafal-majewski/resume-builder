@@ -23,6 +23,14 @@ export const educationEntrySchema = Zod.object({
 	additionalInformations: Zod.array(Zod.string().min(1)),
 });
 
+export const knownTechnologySchema = Zod.object({
+	name: Zod.string().min(1),
+	icon: Zod.object({
+		filepath: Zod.string().min(1),
+	}),
+	details: Zod.string().min(1),
+});
+
 const contentSchema = Zod.object({
 	gdprClause: Zod.string().min(1),
 	person: Zod.object({
@@ -37,6 +45,7 @@ const contentSchema = Zod.object({
 			github: contactEntrySchema,
 		}),
 		education: Zod.array(educationEntrySchema),
+		knownTechnologies: Zod.array(knownTechnologySchema),
 	}),
 });
 export default contentSchema;
