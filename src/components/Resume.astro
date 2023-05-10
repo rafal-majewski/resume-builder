@@ -36,7 +36,7 @@ const {content} = Astro.props;
 		</section>
 	</div>
 	<Separator orientation="horizontal" size="large" />
-	<div class="flex flex--row flex--size-large">
+	<div class="resume__side resume__side--bottom">
 		<section class="resume__additional-info">
 			<section class="resume__education">
 				<h2 class="resume__section__heading">Education</h2>
@@ -71,6 +71,12 @@ const {content} = Astro.props;
 	</div>
 
 	<style lang="scss">
+		.resume__side {
+			&--bottom {
+				display: grid;
+				grid-template-columns: 14rem auto 1fr;
+			}
+		}
 		.resume__section__heading {
 			font-size: 1.625rem;
 			$margin-block: 0.25rem;
