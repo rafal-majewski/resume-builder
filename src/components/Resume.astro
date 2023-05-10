@@ -17,8 +17,11 @@ const {content} = Astro.props;
 <div class="resume">
 	<div class="flex flex--row flex--size-large">
 		<section class="resume__introduction">
-			<h1>{content.person.firstName} {content.person.lastName}</h1>
-			<p>{content.person.description}</p>
+			<h1 class="resume__introduction__names">
+				{content.person.firstName}
+				{content.person.lastName}
+			</h1>
+			<p class="resume__introduction__description">{content.person.description}</p>
 		</section>
 		<Separator orientation="vertical" size="large" />
 		<section class="resume__contact">
@@ -36,7 +39,7 @@ const {content} = Astro.props;
 	<div class="flex flex--row flex--size-large">
 		<section class="resume__additional-info">
 			<section class="resume__education">
-				<h2>Education</h2>
+				<h2 class="resume__section__heading">Education</h2>
 				<Separator orientation="horizontal" size="medium" />
 				<ul class="resume__education__list">
 					{
@@ -52,7 +55,7 @@ const {content} = Astro.props;
 		</section>
 		<Separator orientation="vertical" size="large" />
 		<section class="resume__known-technologies">
-			<h2>Known Technologies</h2>
+			<h2 class="resume__section__heading">Known Technologies</h2>
 			<Separator orientation="horizontal" size="medium" />
 			<ul class="resume__known-technologies__ul">
 				{
@@ -68,6 +71,23 @@ const {content} = Astro.props;
 	</div>
 
 	<style lang="scss">
+		.resume__section__heading {
+			font-size: 1.625rem;
+			$margin-block: 0.25rem;
+			margin-block-start: $margin-block;
+			margin-block-end: $margin-block;
+		}
+		.resume__introduction__names {
+			font-size: 2rem;
+			$margin-block: 0.25rem;
+			margin-block-start: $margin-block;
+			margin-block-end: $margin-block;
+		}
+		.resume__introduction__description {
+			$margin-block: 0.25rem;
+			margin-block-start: $margin-block;
+			margin-block-end: $margin-block;
+		}
 		.resume {
 			display: grid;
 			grid-template-rows: 1fr auto;
