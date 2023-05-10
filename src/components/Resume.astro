@@ -14,7 +14,7 @@ const {content} = Astro.props;
 ---
 
 <div class="resume">
-	<div class="flex flex--row flex--size-large">
+	<div class="resume__side resume__side--top">
 		<section class="resume__introduction">
 			<h1 class="resume__introduction__names">
 				{content.person.firstName}
@@ -72,6 +72,10 @@ const {content} = Astro.props;
 
 	<style lang="scss">
 		.resume__side {
+			&--top {
+				display: grid;
+				grid-template-columns: auto auto 1fr;
+			}
 			&--bottom {
 				display: grid;
 				grid-template-columns: 14rem auto 1fr;
@@ -128,25 +132,6 @@ const {content} = Astro.props;
 			margin-block-start: 0;
 			margin-block-end: 0;
 			padding-inline-start: 0;
-		}
-
-		.flex {
-			display: flex;
-			&.flex--row {
-				flex-direction: row;
-			}
-
-			&.flex--column {
-				flex-direction: column;
-			}
-
-			&.flex--size-large {
-				gap: 1rem;
-			}
-
-			&.flex--size-medium {
-				gap: 0.5rem;
-			}
 		}
 	</style>
 </div>
