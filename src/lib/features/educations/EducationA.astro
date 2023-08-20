@@ -1,6 +1,7 @@
 ---
 import type {educationSchema} from "./educationSchema.js";
 import type zod from "zod";
+
 export interface Props {
 	education: zod.infer<typeof educationSchema>;
 }

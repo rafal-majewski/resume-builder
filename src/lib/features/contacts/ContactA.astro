@@ -1,6 +1,7 @@
 ---
 import type {contactSchema} from "./contactSchema.js";
 import type zod from "zod";
+
 export interface Props {
 	contact: zod.infer<typeof contactSchema>;
 }
