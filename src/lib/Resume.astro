@@ -5,6 +5,7 @@ import Separator from "./Separator.astro";
 import ContactA from "./features/contacts/ContactA.astro";
 import EducationA from "./features/educations/EducationA.astro";
 import KnownTechnology from "./features/known_technologies/KnownTechnology.astro";
+import Skill from "./features/skills/Skill.astro";
 
 export interface Props {
 	content: zod.infer<typeof contentSchema>;
@@ -47,6 +48,19 @@ const {content} = Astro.props;
 							<li>
 								<EducationA education={education} />
 								<Separator orientation="horizontal" size="medium" />
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<section class="resume__skills">
+				<h2 class="resume__section__heading">Skills</h2>
+				<Separator orientation="horizontal" size="medium" />
+				<ul class="resume__skills__list">
+					{
+						content.person.skills.map((skill) => (
+							<li>
+								<Skill skill={skill} />
 							</li>
 						))
 					}
@@ -128,6 +142,19 @@ const {content} = Astro.props;
 		}
 
 		.resume__known-technologies__ul {
+			list-style: none;
+			margin-block-start: 0;
+			margin-block-end: 0;
+			padding-inline-start: 0;
+		}
+
+		.resume__additional-info {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.resume__skills__list {
 			list-style: none;
 			margin-block-start: 0;
 			margin-block-end: 0;
