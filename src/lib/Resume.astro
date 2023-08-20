@@ -2,9 +2,9 @@
 import type zod from "zod";
 import type contentSchema from "./contentSchema.js";
 import Separator from "./Separator.astro";
-import ContactEntryA from "./ContactEntryA.astro";
-import EducationEntryA from "./EducationEntryA.astro";
-import KnownTechnology from "./KnownTechnology.astro";
+import ContactEntryA from "./features/contacts/ContactEntryA.astro";
+import EducationEntryA from "./features/educations/EducationEntryA.astro";
+import KnownTechnology from "./features/known_technologies/KnownTechnology.astro";
 
 export interface Props {
 	content: zod.infer<typeof contentSchema>;

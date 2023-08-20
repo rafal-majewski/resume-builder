@@ -1,37 +1,9 @@
 import zod from "zod";
+import {contactEntrySchema} from "./features/contacts/contactEntrySchema.js";
+import {educationEntrySchema} from "./features/educations/educationEntrySchema.js";
+import {knownTechnologyEntrySchema} from "./features/known_technologies/knownTechnologyEntrySchema.js";
 
-export const contactEntrySchema = zod.object({
-	datum: zod.string().min(1),
-	href: zod.string().min(1),
-	icon: zod.object({
-		filepath: zod.string().min(1),
-		alt: zod.string().min(1),
-	}),
-});
-
-export const educationEntrySchema = zod.object({
-	name: zod.string().min(1),
-	period: zod.object({
-		start: zod.string().min(1),
-		end: zod.string().min(1),
-	}),
-	description: zod.string().min(1),
-	href: zod.string().min(1),
-	icon: zod.object({
-		filepath: zod.string().min(1),
-	}),
-	additionalInformations: zod.array(zod.string().min(1)),
-});
-
-export const knownTechnologySchema = zod.object({
-	name: zod.string().min(1),
-	icon: zod.object({
-		filepath: zod.string().min(1),
-	}),
-	details: zod.string().min(1),
-});
-
-const contentSchema = zod.object({
+export default zod.object({
 	gdprClause: zod.string().min(1),
 	person: zod.object({
 		firstName: zod.string().min(1),
@@ -45,7 +17,6 @@ const contentSchema = zod.object({
 			github: contactEntrySchema,
 		}),
 		education: zod.array(educationEntrySchema),
-		knownTechnologies: zod.array(knownTechnologySchema),
+		knownTechnologies: zod.array(knownTechnologyEntrySchema),
 	}),
 });
-export default contentSchema;
