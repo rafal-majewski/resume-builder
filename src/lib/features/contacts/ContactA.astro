@@ -1,0 +1,30 @@
+---
+import type {contactSchema} from "./contactSchema.js";
+import type zod from "zod";
+
+export interface Props {
+	contact: zod.infer<typeof contactSchema>;
+}
+
+const {contact} = Astro.props;
+---
+
+<a class="contact-a" href={contact.href}>
+	<img src={contact.icon.filePath} class="contact-a__icon" alt={contact.icon.alt} />
+	<span class="contact-a__datum">{contact.datum}</span>
+</a>
+
+<style lang="scss">
+	.contact-a {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+
+		text-decoration: none;
+		color: black;
+	}
+	.contact-a__icon {
+		width: 1rem;
+		height: 1rem;
+	}
+</style>

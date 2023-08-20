@@ -1,13 +1,13 @@
 ---
-import type Zod from "zod";
-import type contentSchema from "../contentSchema.js";
-import Separator from "./layout/Separator.astro";
-import ContactEntryA from "./ContactEntryA.astro";
-import EducationEntryA from "./EducationEntryA.astro";
-import KnownTechnology from "./KnownTechnology.astro";
+import type zod from "zod";
+import type {contentSchema} from "./contentSchema.js";
+import Separator from "./Separator.astro";
+import ContactA from "./features/contacts/ContactA.astro";
+import EducationA from "./features/educations/EducationA.astro";
+import KnownTechnology from "./features/known_technologies/KnownTechnology.astro";
 
 export interface Props {
-	content: Zod.infer<typeof contentSchema>;
+	content: zod.infer<typeof contentSchema>;
 }
 
 const {content} = Astro.props;
@@ -25,11 +25,11 @@ const {content} = Astro.props;
 		<Separator orientation="vertical" size="large" />
 		<section class="resume__contact">
 			<ul class="resume__contact__list">
-				<li><ContactEntryA contactEntry={content.person.contact.phoneNumber} /></li>
-				<li><ContactEntryA contactEntry={content.person.contact.emailAddress} /></li>
-				<li><ContactEntryA contactEntry={content.person.contact.location} /></li>
-				<li><ContactEntryA contactEntry={content.person.contact.linkedin} /></li>
-				<li><ContactEntryA contactEntry={content.person.contact.github} /></li>
+				<li><ContactA contact={content.person.contact.phoneNumber} /></li>
+				<li><ContactA contact={content.person.contact.emailAddress} /></li>
+				<li><ContactA contact={content.person.contact.location} /></li>
+				<li><ContactA contact={content.person.contact.linkedin} /></li>
+				<li><ContactA contact={content.person.contact.github} /></li>
 			</ul>
 			<br />
 			<p class="resume__contact__gdpr-clause">{content.gdprClause}</p>
@@ -43,9 +43,9 @@ const {content} = Astro.props;
 				<Separator orientation="horizontal" size="medium" />
 				<ul class="resume__education__list">
 					{
-						content.person.education.map((educationEntry) => (
+						content.person.education.map((education) => (
 							<li>
-								<EducationEntryA educationEntry={educationEntry} />
+								<EducationA education={education} />
 								<Separator orientation="horizontal" size="medium" />
 							</li>
 						))

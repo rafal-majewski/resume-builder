@@ -1,0 +1,55 @@
+---
+import type {educationSchema} from "./educationSchema.js";
+import type zod from "zod";
+
+export interface Props {
+	education: zod.infer<typeof educationSchema>;
+}
+
+const {education} = Astro.props;
+---
+
+<a class="education-a" href={education.href}>
+	<img class="education-a__icon" src={education.icon.filePath} alt="" />
+	<span class="education-a__text">
+		<span class="education-a__text__name">{education.name}</span>
+		<span class="education-a__text__period">{education.period.start} – {education.period.end}</span>
+		<span class="education-a__text__description">{education.description}</span>
+		<ul class="education-a__text__additional-informations">
+			{
+				education.additionalInformations.map((additionalInformation) => (
+					<li class="education-a__text__additional-informations__item">{additionalInformation}</li>
+				))
+			}
+		</ul>
+	</span>
+</a>
+
+<style lang="scss">
+	.education-a {
+		display: flex;
+		gap: 0.25rem;
+
+		text-decoration: none;
+		color: black;
+	}
+	.education-a__text {
+		display: flex;
+		flex-direction: column;
+	}
+	.education-a__text__name {
+		font-weight: bold;
+	}
+	.education-a__icon {
+		width: 3rem;
+		height: 3rem;
+	}
+	.education-a__text__additional-informations {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.education-a__text__additional-informations__item {
+		font-style: italic;
+	}
+</style>
