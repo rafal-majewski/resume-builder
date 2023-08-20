@@ -1,6 +1,6 @@
 import zod from "zod";
 
-export const educationEntrySchema = zod.object({
+export const educationSchema = zod.object({
 	name: zod.string().min(1),
 	period: zod.object({
 		start: zod.string().min(1),

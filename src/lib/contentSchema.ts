@@ -1,7 +1,7 @@
 import zod from "zod";
-import {contactEntrySchema} from "./features/contacts/contactEntrySchema.js";
-import {educationEntrySchema} from "./features/educations/educationEntrySchema.js";
-import {knownTechnologyEntrySchema} from "./features/known_technologies/knownTechnologyEntrySchema.js";
+import {contactSchema} from "./features/contacts/contactSchema.js";
+import {educationSchema} from "./features/educations/educationSchema.js";
+import {knownTechnologySchema} from "./features/known_technologies/knownTechnologySchema.js";
 
 export const contentSchema = zod.object({
 	gdprClause: zod.string().min(1),
@@ -10,13 +10,13 @@ export const contentSchema = zod.object({
 		lastName: zod.string().min(1),
 		description: zod.string().min(1),
 		contact: zod.object({
-			phoneNumber: contactEntrySchema,
-			emailAddress: contactEntrySchema,
-			location: contactEntrySchema,
-			linkedin: contactEntrySchema,
-			github: contactEntrySchema,
+			phoneNumber: contactSchema,
+			emailAddress: contactSchema,
+			location: contactSchema,
+			linkedin: contactSchema,
+			github: contactSchema,
 		}),
-		education: zod.array(educationEntrySchema),
-		knownTechnologies: zod.array(knownTechnologyEntrySchema),
+		education: zod.array(educationSchema),
+		knownTechnologies: zod.array(knownTechnologySchema),
 	}),
 });

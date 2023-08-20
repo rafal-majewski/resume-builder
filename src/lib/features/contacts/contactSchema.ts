@@ -1,6 +1,6 @@
 import zod from "zod";
 
-export const contactEntrySchema = zod.object({
+export const contactSchema = zod.object({
 	datum: zod.string().min(1),
 	href: zod.string().min(1),
 	icon: zod.object({

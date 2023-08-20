@@ -1,6 +1,6 @@
 import zod from "zod";
 
-export const knownTechnologyEntrySchema = zod.object({
+export const knownTechnologySchema = zod.object({
 	name: zod.string().min(1),
 	icon: zod.object({
 		filepath: zod.string().min(1),
