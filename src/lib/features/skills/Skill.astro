@@ -1,0 +1,21 @@
+---
+import type {skillSchema} from "./skillSchema.js";
+import type zod from "zod";
+
+export interface Props {
+	skill: zod.infer<typeof skillSchema>;
+}
+
+const {skill} = Astro.props;
+---
+
+<p class="skill">
+	{skill}
+</p>
+
+<style lang="scss">
+	.skill {
+		margin-block-start: 0;
+		margin-block-end: 0;
+	}
+</style>
