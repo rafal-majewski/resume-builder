@@ -6,29 +6,28 @@ export interface Props {
 	headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-const {name, icon, details} = Astro.props.knownTechnology;
-const {headingLevel} = Astro.props;
+const {knownTechnology, headingLevel} = Astro.props;
 ---
 
 <div class="techonology">
-	<img src={icon.filepath} class="techonology__icon" alt="" />
+	<img src={knownTechnology.icon.filepath} class="techonology__icon" alt="" />
 	<span class="technology__name-and-details">
 		{
 			headingLevel === 1 ? (
-				<h1 class="technology__name-and-details__name">{name}</h1>
+				<h1 class="technology__name-and-details__name">{knownTechnology.name}</h1>
 			) : headingLevel === 2 ? (
-				<h2 class="technology__name-and-details__name">{name}</h2>
+				<h2 class="technology__name-and-details__name">{knownTechnology.name}</h2>
 			) : headingLevel === 3 ? (
-				<h3 class="technology__name-and-details__name">{name}</h3>
+				<h3 class="technology__name-and-details__name">{knownTechnology.name}</h3>
 			) : headingLevel === 4 ? (
-				<h4 class="technology__name-and-details__name">{name}</h4>
+				<h4 class="technology__name-and-details__name">{knownTechnology.name}</h4>
 			) : headingLevel === 5 ? (
-				<h5 class="technology__name-and-details__name">{name}</h5>
+				<h5 class="technology__name-and-details__name">{knownTechnology.name}</h5>
 			) : (
-				<h6 class="technology__name-and-details__name">{name}</h6>
+				<h6 class="technology__name-and-details__name">{knownTechnology.name}</h6>
 			)
 		}
-		{(<p class="technology__name-and-details__details">{details}</p>)}
+		{(<p class="technology__name-and-details__details">{knownTechnology.details}</p>)}
 	</span>
 </div>
 

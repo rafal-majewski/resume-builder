@@ -5,12 +5,12 @@ export interface Props {
 	contact: zod.infer<typeof contactSchema>;
 }
 
-const {datum, icon, href} = Astro.props.contact;
+const {contact} = Astro.props;
 ---
 
-<a class="contact-a" href={href}>
-	<img src={icon.filepath} class="contact-a__icon" alt={icon.alt} />
-	<span class="contact-a__datum">{datum}</span>
+<a class="contact-a" href={contact.href}>
+	<img src={contact.icon.filepath} class="contact-a__icon" alt={contact.icon.alt} />
+	<span class="contact-a__datum">{contact.datum}</span>
 </a>
 
 <style lang="scss">

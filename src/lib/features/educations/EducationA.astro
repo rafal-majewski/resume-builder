@@ -5,18 +5,18 @@ export interface Props {
 	education: zod.infer<typeof educationSchema>;
 }
 
-const {name, period, description, href, icon, additionalInformations} = Astro.props.education;
+const {education} = Astro.props;
 ---
 
-<a class="education-a" href={href}>
-	<img class="education-a__icon" src={icon.filepath} alt="" />
+<a class="education-a" href={education.href}>
+	<img class="education-a__icon" src={education.icon.filepath} alt="" />
 	<span class="education-a__text">
-		<span class="education-a__text__name">{name}</span>
-		<span class="education-a__text__period">{period.start} – {period.end}</span>
-		<span class="education-a__text__description">{description}</span>
+		<span class="education-a__text__name">{education.name}</span>
+		<span class="education-a__text__period">{education.period.start} – {education.period.end}</span>
+		<span class="education-a__text__description">{education.description}</span>
 		<ul class="education-a__text__additional-informations">
 			{
-				additionalInformations.map((additionalInformation) => (
+				education.additionalInformations.map((additionalInformation) => (
 					<li class="education-a__text__additional-informations__item">{additionalInformation}</li>
 				))
 			}
