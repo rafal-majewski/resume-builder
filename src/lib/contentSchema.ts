@@ -2,6 +2,7 @@ import zod from "zod";
 import {contactSchema} from "./features/contacts/contactSchema.js";
 import {educationSchema} from "./features/educations/educationSchema.js";
 import {knownTechnologySchema} from "./features/known_technologies/knownTechnologySchema.js";
+import {skillSchema} from "./features/skills/skillSchema.js";
 
 export const contentSchema = zod.object({
 	gdprClause: zod.string().min(1),
@@ -18,5 +19,6 @@ export const contentSchema = zod.object({
 		}),
 		education: zod.array(educationSchema),
 		knownTechnologies: zod.array(knownTechnologySchema),
+		skills: zod.array(skillSchema),
 	}),
 });
