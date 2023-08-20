@@ -1,5 +1,5 @@
 ---
-import type Zod from "zod";
+import type zod from "zod";
 import type contentSchema from "./contentSchema.js";
 import Separator from "./Separator.astro";
 import ContactEntryA from "./ContactEntryA.astro";
@@ -7,7 +7,7 @@ import EducationEntryA from "./EducationEntryA.astro";
 import KnownTechnology from "./KnownTechnology.astro";
 
 export interface Props {
-	content: Zod.infer<typeof contentSchema>;
+	content: zod.infer<typeof contentSchema>;
 }
 
 const {content} = Astro.props;

@@ -1,8 +1,8 @@
 ---
 import type {educationEntrySchema} from "./contentSchema.js";
-import type Zod from "zod";
+import type zod from "zod";
 export interface Props {
-	educationEntry: Zod.infer<typeof educationEntrySchema>;
+	educationEntry: zod.infer<typeof educationEntrySchema>;
 }
 
 const {name, period, description, href, icon, additionalInformations} = Astro.props.educationEntry;

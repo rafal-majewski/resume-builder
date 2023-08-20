@@ -1,8 +1,8 @@
 ---
 import type {knownTechnologySchema} from "./contentSchema.js";
-import type Zod from "zod";
+import type zod from "zod";
 export interface Props {
-	knownTechnology: Zod.infer<typeof knownTechnologySchema>;
+	knownTechnology: zod.infer<typeof knownTechnologySchema>;
 	headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
 }
 

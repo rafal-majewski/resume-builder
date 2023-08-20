@@ -1,8 +1,8 @@
 ---
 import type {contactEntrySchema} from "./contentSchema.js";
-import type Zod from "zod";
+import type zod from "zod";
 export interface Props {
-	contactEntry: Zod.infer<typeof contactEntrySchema>;
+	contactEntry: zod.infer<typeof contactEntrySchema>;
 }
 
 const {datum, icon, href} = Astro.props.contactEntry;
