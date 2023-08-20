@@ -9,7 +9,7 @@ export const educationSchema = zod.object({
 	description: zod.string().min(1),
 	href: zod.string().min(1),
 	icon: zod.object({
-		filepath: zod.string().min(1),
+		filePath: zod.string().min(1),
 	}),
 	additionalInformations: zod.array(zod.string().min(1)),
 });
