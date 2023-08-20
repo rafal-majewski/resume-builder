@@ -66,10 +66,17 @@ const {content} = Astro.props;
 			<Separator orientation="horizontal" size="medium" />
 			<ul class="resume__known-technologies__ul">
 				{
-					content.person.knownTechnologies.map((knownTechnology) => (
+					content.person.knownTechnologies.slice(0, 1).map((knownTechnology) => (
 						<li>
 							<KnownTechnology knownTechnology={knownTechnology} headingLevel={3} />
+						</li>
+					))
+				}
+				{
+					content.person.knownTechnologies.slice(1).map((knownTechnology) => (
+						<li>
 							<Separator orientation="horizontal" size="small" />
+							<KnownTechnology knownTechnology={knownTechnology} headingLevel={3} />
 						</li>
 					))
 				}
