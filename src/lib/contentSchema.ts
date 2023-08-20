@@ -3,7 +3,7 @@ import {contactEntrySchema} from "./features/contacts/contactEntrySchema.js";
 import {educationEntrySchema} from "./features/educations/educationEntrySchema.js";
 import {knownTechnologyEntrySchema} from "./features/known_technologies/knownTechnologyEntrySchema.js";
 
-export default zod.object({
+export const contentSchema = zod.object({
 	gdprClause: zod.string().min(1),
 	person: zod.object({
 		firstName: zod.string().min(1),
