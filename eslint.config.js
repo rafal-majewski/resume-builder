@@ -5,7 +5,7 @@
 import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import * as typescriptEslintParser from "@typescript-eslint/parser";
 import * as espreeParser from "espree";
-import * as AstroEslintParser from "astro-eslint-parser";
+import * as astroEslintParser from "astro-eslint-parser";
 import astroEslintPlugin from "eslint-plugin-astro";
 import globals from "globals";
 
@@ -148,7 +148,7 @@ const eslintConfig = [
 	{
 		files: ["**/*.astro"],
 		languageOptions: {
-			parser: AstroEslintParser,
+			parser: astroEslintParser,
 			parserOptions: {
 				parser: typescriptEslintParser,
 				extraFileExtensions: [".astro"],
