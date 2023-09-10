@@ -1,0 +1,33 @@
+---
+import type {languageSchema} from "./languageSchema.js";
+import type zod from "zod";
+
+export interface Props {
+	language: zod.infer<typeof languageSchema>;
+}
+
+const {language} = Astro.props;
+---
+
+<li class="language">
+	<img class="language__icon" src={language.icon.filePath} alt={language.name} />
+	<span class="language__name">{language.name}: {language.level}</span>
+</li>
+
+<style lang="scss">
+	.language {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+	.language__icon {
+		width: 1rem;
+		height: 1rem;
+		border-radius: 50%;
+		border: 1px solid gray;
+		object-fit: cover;
+	}
+	.language__name {
+		color: black;
+	}
+</style>

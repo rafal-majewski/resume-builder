@@ -6,6 +6,7 @@ import ContactA from "./features/contacts/ContactA.astro";
 import EducationA from "./features/educations/EducationA.astro";
 import KnownTechnology from "./features/known_technologies/KnownTechnology.astro";
 import Skill from "./features/skills/Skill.astro";
+import Language from "./features/languages/Language.astro";
 
 export interface Props {
 	content: zod.infer<typeof contentSchema>;
@@ -39,6 +40,27 @@ const {content} = Astro.props;
 	<Separator orientation="horizontal" size="large" />
 	<div class="resume__side resume__side--bottom">
 		<section class="resume__additional-info">
+			<section class="resume__languages">
+				<h2 class="resume__section__heading">Languages</h2>
+				<Separator orientation="horizontal" size="medium" />
+				<ul class="resume__languages__list">
+					{
+						content.person.languages.slice(0, 1).map((education) => (
+							<li>
+								<Language language={education} />
+							</li>
+						))
+					}
+					{
+						content.person.languages.slice(1).map((education) => (
+							<li>
+								<Separator orientation="horizontal" size="small" />
+								<Language language={education} />
+							</li>
+						))
+					}
+				</ul>
+			</section>
 			<section class="resume__education">
 				<h2 class="resume__section__heading">Education</h2>
 				<Separator orientation="horizontal" size="medium" />
@@ -149,6 +171,13 @@ const {content} = Astro.props;
 		}
 
 		.resume__education__list {
+			list-style: none;
+			margin-block-start: 0;
+			margin-block-end: 0;
+			padding-inline-start: 0;
+		}
+
+		.resume__languages__list {
 			list-style: none;
 			margin-block-start: 0;
 			margin-block-end: 0;
