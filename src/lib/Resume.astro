@@ -7,6 +7,7 @@ import EducationA from "./features/educations/EducationA.astro";
 import KnownTechnology from "./features/known_technologies/KnownTechnology.astro";
 import Skill from "./features/skills/Skill.astro";
 import Language from "./features/languages/Language.astro";
+import WorkHistoryA from "./features/work_histories/WorkHistoryA.astro";
 
 export interface Props {
 	content: zod.infer<typeof contentSchema>;
@@ -56,6 +57,27 @@ const {content} = Astro.props;
 							<li>
 								<Separator orientation="horizontal" size="small" />
 								<Language language={education} />
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<section class="resume__work-histories">
+				<h2 class="resume__section__heading">Work history</h2>
+				<Separator orientation="horizontal" size="medium" />
+				<ul class="resume__education__list">
+					{
+						content.person.workHistories.slice(0, 1).map((workHistory) => (
+							<li>
+								<WorkHistoryA workHistory={workHistory} />
+							</li>
+						))
+					}
+					{
+						content.person.workHistories.slice(1).map((workHistory) => (
+							<li>
+								<Separator orientation="horizontal" size="small" />
+								<WorkHistoryA workHistory={workHistory} />
 							</li>
 						))
 					}
