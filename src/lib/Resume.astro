@@ -8,6 +8,7 @@ import KnownTechnology from "./features/known_technologies/KnownTechnology.astro
 import Skill from "./features/skills/Skill.astro";
 import Language from "./features/languages/Language.astro";
 import WorkHistoryA from "./features/work_histories/WorkHistoryA.astro";
+import CertificationA from "./features/certifications/CertificationA.astro";
 
 export interface Props {
 	content: zod.infer<typeof contentSchema>;
@@ -99,6 +100,27 @@ const {content} = Astro.props;
 							<li>
 								<Separator orientation="horizontal" size="small" />
 								<EducationA education={education} />
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<section class="resume__certifications">
+				<h2 class="resume__section__heading">Certifications</h2>
+				<Separator orientation="horizontal" size="medium" />
+				<ul class="resume__certifications__list">
+					{
+						content.person.certifications.slice(0, 1).map((certification) => (
+							<li>
+								<CertificationA certification={certification} />
+							</li>
+						))
+					}
+					{
+						content.person.certifications.slice(1).map((certification) => (
+							<li>
+								<Separator orientation="horizontal" size="small" />
+								<CertificationA certification={certification} />
 							</li>
 						))
 					}
@@ -220,6 +242,13 @@ const {content} = Astro.props;
 		}
 
 		.resume__skills__list {
+			list-style: none;
+			margin-block-start: 0;
+			margin-block-end: 0;
+			padding-inline-start: 0;
+		}
+
+		.resume__certifications__list {
 			list-style: none;
 			margin-block-start: 0;
 			margin-block-end: 0;

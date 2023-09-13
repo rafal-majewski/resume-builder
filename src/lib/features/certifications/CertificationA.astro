@@ -1,0 +1,22 @@
+---
+import type {certificationSchema} from "./certificationSchema.js";
+import type zod from "zod";
+
+export interface Props {
+	certification: zod.infer<typeof certificationSchema>;
+}
+
+const {certification} = Astro.props;
+---
+
+<a class="certification-a" href={certification.url}>
+	{certification.name}
+</a>
+
+<style lang="scss">
+	.certification-a {
+		display: block;
+		text-decoration: none;
+		color: black;
+	}
+</style>
