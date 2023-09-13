@@ -10,46 +10,49 @@ const {education} = Astro.props;
 ---
 
 <a class="education-a" href={education.href}>
-	<img class="education-a__icon" src={education.icon.filePath} alt="" />
-	<span class="education-a__text">
-		<span class="education-a__text__name">{education.name}</span>
-		<span class="education-a__text__period">{education.period.start} – {education.period.end}</span>
-		<span class="education-a__text__description">{education.description}</span>
-		<ul class="education-a__text__additional-informations">
-			{
-				education.additionalInformations.map((additionalInformation) => (
-					<li class="education-a__text__additional-informations__item">{additionalInformation}</li>
-				))
-			}
-		</ul>
+	<span class="education-a__top">
+		<img class="education-a__top__employer-logo" src={education.icon.filePath} alt="" />
+		<span class="education-a__top__right">
+			<span class="education-a__top__right__employer-name">{education.name}</span>
+			<span class="education-a__top__right__period">
+				{education.period.start} – {education.period.end}
+			</span>
+			<span>{education.description}</span>
+		</span>
 	</span>
+	<ul class="education-a__key-points-ul">
+		{
+			education.additionalInformations.map((additionalInformation) => (
+				<li>{additionalInformation}</li>
+			))
+		}
+	</ul>
 </a>
 
 <style lang="scss">
 	.education-a {
 		display: flex;
-		gap: 0.25rem;
-
+		flex-direction: column;
 		text-decoration: none;
 		color: black;
 	}
-	.education-a__text {
+	.education-a__top {
+		display: grid;
+		grid-template-columns: auto 1fr;
+	}
+	.education-a__top__right {
 		display: flex;
 		flex-direction: column;
 	}
-	.education-a__text__name {
-		font-weight: bold;
-	}
-	.education-a__icon {
+	.education-a__top__employer-logo {
 		width: 3rem;
 		height: 3rem;
 	}
-	.education-a__text__additional-informations {
-		list-style: none;
-		padding: 0;
-		margin: 0;
+	.education-a__top__right__employer-name {
+		font-weight: bold;
 	}
-	.education-a__text__additional-informations__item {
-		font-style: italic;
+	.education-a__key-points-ul {
+		list-style-type: disc;
+		padding-inline-start: 1.5rem;
 	}
 </style>
