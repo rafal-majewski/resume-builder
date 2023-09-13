@@ -131,8 +131,16 @@ const {content} = Astro.props;
 				<Separator orientation="horizontal" size="medium" />
 				<ul class="resume__skills__list">
 					{
-						content.person.skills.map((skill) => (
+						content.person.skills.slice(0, 1).map((skill) => (
 							<li>
+								<Skill skill={skill} />
+							</li>
+						))
+					}
+					{
+						content.person.skills.slice(1).map((skill) => (
+							<li>
+								<Separator orientation="horizontal" size="small" />
 								<Skill skill={skill} />
 							</li>
 						))
