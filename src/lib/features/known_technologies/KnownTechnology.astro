@@ -11,7 +11,9 @@ const {knownTechnology, headingLevel} = Astro.props;
 ---
 
 <div class="techonology">
-	<img src={knownTechnology.icon.filePath} class="techonology__icon" alt="" />
+	<span class="technology__icon-container">
+		<img src={knownTechnology.icon.filePath} class="techonology__icon" alt="" />
+	</span>
 	<span class="technology__name-and-details">
 		{
 			headingLevel === 1 ? (
@@ -47,6 +49,10 @@ const {knownTechnology, headingLevel} = Astro.props;
 	.techonology__icon {
 		width: 100%;
 		height: 100%;
+		position: absolute;
+	}
+	.technology__icon-container {
+		position: relative;
 	}
 	.techonology {
 		display: grid;
