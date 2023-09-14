@@ -9,8 +9,8 @@ export interface Props {
 const {education} = Astro.props;
 ---
 
-<a class="education-a" href={education.href}>
-	<span class="education-a__top">
+<span class="education-a">
+	<a class="education-a__top" href={education.href}>
 		<img class="education-a__top__employer-logo" src={education.icon.filePath} alt="" />
 		<span class="education-a__top__right">
 			<span class="education-a__top__right__employer-name">{education.name}</span>
@@ -19,7 +19,7 @@ const {education} = Astro.props;
 			</span>
 			<span>{education.description}</span>
 		</span>
-	</span>
+	</a>
 	<ul class="education-a__key-points-ul">
 		{
 			education.additionalInformations.map((additionalInformation) => (
@@ -27,18 +27,18 @@ const {education} = Astro.props;
 			))
 		}
 	</ul>
-</a>
+</span>
 
 <style lang="scss">
 	.education-a {
 		display: flex;
 		flex-direction: column;
-		text-decoration: none;
-		color: black;
 	}
 	.education-a__top {
 		display: grid;
 		grid-template-columns: auto 1fr;
+		text-decoration: none;
+		color: black;
 	}
 	.education-a__top__right {
 		display: flex;

@@ -9,8 +9,8 @@ export interface Props {
 const {workHistory} = Astro.props;
 ---
 
-<a class="work-history-a" href={workHistory.employer.url}>
-	<span class="work-history-a__top">
+<span class="work-history-a">
+	<a class="work-history-a__top" href={workHistory.employer.url}>
 		<img
 			class="work-history-a__top__employer-logo"
 			src={workHistory.employer.logo.filePath}
@@ -23,22 +23,22 @@ const {workHistory} = Astro.props;
 			</span>
 			<span>{workHistory.title}</span>
 		</span>
-	</span>
+	</a>
 	<ul class="work-history-a__key-points-ul">
 		{workHistory.keyPoints.map((keyPoint) => <li>{keyPoint}</li>)}
 	</ul>
-</a>
+</span>
 
 <style lang="scss">
 	.work-history-a {
 		display: flex;
 		flex-direction: column;
-		text-decoration: none;
-		color: black;
 	}
 	.work-history-a__top {
 		display: grid;
 		grid-template-columns: auto 1fr;
+		text-decoration: none;
+		color: black;
 	}
 	.work-history-a__top__right {
 		display: flex;
