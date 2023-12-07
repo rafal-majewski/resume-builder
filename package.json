@@ -45,7 +45,7 @@
 		"prettier": "^3.0.3",
 		"prettier-plugin-astro": "^0.8.0",
 		"release-it": "^16.1.5",
-		"typescript": "^5.0.4",
+		"typescript": "^5.3.3",
 		"zod": "^3.21.4"
 	},
 	"type": "module",
