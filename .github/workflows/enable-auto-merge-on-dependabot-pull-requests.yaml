@@ -1,0 +1,19 @@
+jobs:
+  enable_auto_merge:
+    if: "${{github.actor == 'dependabot[bot]'}}"
+    name: "Enable auto-merge on Dependabot pull requests"
+    permissions:
+      contents: "write"
+      pull-requests: "write"
+    runs-on: "ubuntu-latest"
+    steps:
+      - env:
+          GH_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+          PULL_REQUEST_URL: "${{github.event.pull_request.html_url}}"
+        name: "Enable auto-merge"
+        run: |
+          gh pr merge --auto --merge "$PULL_REQUEST_URL"
+name: "Enable auto-merge on Dependabot pull requests"
+on:
+  pull_request:
+    types: ["opened"]

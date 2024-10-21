@@ -1,0 +1,24 @@
+jobs:
+  fix_dependabot_pull_request_title:
+    if: "${{github.actor == 'dependabot[bot]'}}"
+    name: "Fix Dependabot pull request title"
+    permissions:
+      pull-requests: "write"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout repository"
+        uses: "actions/checkout@v4"
+      - id: "remember_pull_request_title"
+        name: "Get current pull request title"
+        run: |
+          echo "pull_request_title=${{github.event.pull_request.title}}" >> $GITHUB_OUTPUT
+      - env:
+          GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+        if: "${{startsWith(steps.remember_pull_request_title.outputs.pull_request_title, 'chore: ')}}"
+        name: "Fix pull request title"
+        run: |
+          gh pr edit "${{github.event.pull_request.number}}" --title "$(echo "${{steps.remember_pull_request_title.outputs.pull_request_title}}" | sed 's/^chore: //')"
+name: "Fix Dependabot pull request titles"
+on:
+  pull_request:
+    types: ["edited", "opened", "synchronize"]
