@@ -6,7 +6,7 @@
 	"dependencies": {},
 	"description": "A tool that generates a PDF resume from the provided data.",
 	"devDependencies": {
-		"@commitlint/cli": "19.5.0",
+		"@commitlint/cli": "19.6.0",
 		"@sveltejs/adapter-node": "5.2.8",
 		"@sveltejs/kit": "2.8.1",
 		"@sveltejs/vite-plugin-svelte": "4.0.1",
