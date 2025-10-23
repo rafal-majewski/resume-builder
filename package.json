@@ -14,7 +14,7 @@
 		"prettier-plugin-svelte": "3.3.3",
 		"svelte": "5.41.1",
 		"typescript": "5.9.3",
-		"vite": "7.1.11"
+		"vite": "7.1.12"
 	},
 	"homepage": "https://github.com/Rafal-Majewski/resume-builder#readme",
 	"license": "CC0-1.0",
