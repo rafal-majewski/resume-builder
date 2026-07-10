@@ -8,7 +8,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "21.2.1",
 		"@sveltejs/adapter-node": "5.5.5",
-		"@sveltejs/kit": "2.69.1",
+		"@sveltejs/kit": "2.69.2",
 		"@sveltejs/vite-plugin-svelte": "7.2.0",
 		"prettier": "3.9.5",
 		"prettier-plugin-svelte": "4.1.1",
